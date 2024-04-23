@@ -16,9 +16,9 @@ jobs:
 
       - name: Deploy to EC2
         uses: easingthemes/ssh-deploy@main
-
-        run: |
-          sudo rsync -avz --exclude=vendor --exclude=node_modules $GITHUB_WORKSPACE/ ${{ secrets.EC2_USERNAME }}@${{ secrets.EC2_HOST }}:${{ secrets.TARGET_DIR }}
+        
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-          
+          REMOTE_HOST: ${{ secrets.EC2_HOST }}
+          REMOTE_USER: ${{ secrets.EC2_USERNAME }}
+          TARGET: ${{ secrets.TARGET_DIR }}
