@@ -37,5 +37,5 @@ jobs:
             git pull
             composer install
       - name: Copy to web server
-        run: sudo cp -r /home/ubuntu/demo_ci-cd /var/www/html/demo_ci-cd/
+        run: sudo cp -r * /var/www/html/demo_ci-cd/
        
